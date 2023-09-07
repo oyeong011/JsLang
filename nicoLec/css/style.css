@@ -1,0 +1,30 @@
+h1{
+    color : cornflowerblue;
+    transition: color 0.5s ease-in-out;
+}
+
+body{
+    background-color: beige;
+}
+
+.clicked{
+    color: rgb(91, 227, 227);
+}
+
+.sexy-font{
+    color: chartreuse;
+}
+.hidden{
+    display : none;
+}
+img {
+    position:absolute;
+    width:90%;
+    height:90%;
+    left: 0px;
+    top: 0px;
+    right:0px;
+    bottom:0px;
+    z-index: -1;
+    opacity:60%;
+    }

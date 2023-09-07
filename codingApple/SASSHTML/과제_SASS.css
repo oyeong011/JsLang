@@ -1,0 +1,74 @@
+.main-table {
+  list-style-type: none;
+  width: 30%;
+  margin: auto;
+}
+.main-table li {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid black;
+}
+.main-table li:hover {
+  cursor: pointer;
+}
+.main-table li:active {
+  background-color: rgb(107, 194, 249);
+}
+
+.alertBox_green {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  background-color: rgb(158, 252, 158);
+}
+.alertBox_green > h4,
+.alertBox_green > p {
+  padding: 25px;
+  padding-right: 10px;
+  margin-bottom: 0%;
+}
+
+.alertBox_red {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  background-color: rgb(244, 158, 158);
+}
+.alertBox_red > h4,
+.alertBox_red > p {
+  padding: 25px;
+  padding-right: 10px;
+  margin-bottom: 0%;
+}
+
+.alertBox_yellow {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  background-color: rgb(237, 237, 179);
+}
+.alertBox_yellow > h4,
+.alertBox_yellow > p {
+  padding: 25px;
+  padding-right: 10px;
+  margin-bottom: 0%;
+}
+
+.row {
+  width: 70%;
+}
+
+.col-half {
+  width: 50%;
+  border: 1px solid black;
+}
+
+.col-third {
+  width: 33.33%;
+  border: 1px solid black;
+}
+
+.col-four {
+  width: 25%;
+  border: 1px solid black;
+}/*# sourceMappingURL=과제_SASS.css.map */

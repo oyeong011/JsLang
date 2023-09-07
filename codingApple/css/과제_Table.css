@@ -1,0 +1,51 @@
+body{
+}
+.backgroundTable{
+    background-color: rgb(160, 204, 222);
+    width: 70%;
+    max-width: 1300px;
+    height: 40%;
+    margin: auto;
+    padding: 20px;
+    display: block;
+    
+}
+td{
+    padding: 15px;
+    border-bottom: 1px solid #85b7c9;
+    font-size: xx-small;
+    font-weight: 600; /* 글자 굵기 조절 */
+    opacity: 0.3; /* 흐림 정도(투명도) 조절 */
+    text-align: center;
+    width: auto;
+    min-width: 50px;
+}
+tr{
+    width: 100%;
+}
+.custom-table{
+    width: 100%;
+    border-collapse: collapse;
+    background-color: aliceblue;
+    max-width: 100%;
+    overflow: auto;
+}
+.itemimg{
+    width: 40%;
+    float: left;
+}
+.ImgAndText{
+    display: flex; /* 사진과 글을 나란히 배치하기 위한 flex 설정 */
+    align-items: center;
+}
+a{
+  color: cadetblue;  
+}
+.payment{
+    float: right;
+    background-color: rgb(42, 42, 174);
+    color: aliceblue;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+}

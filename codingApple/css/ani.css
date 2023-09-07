@@ -1,0 +1,21 @@
+.ani-text{
+    
+}
+.ani-text:hover{
+    animation-name: 작명;
+    animation-duration: 1s;
+}
+@keyframes 작명{
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(-100px);
+    }
+    75%{
+        transform: translateX(100px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}

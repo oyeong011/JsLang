@@ -1,0 +1,233 @@
+body, html {
+    margin: 0;
+    padding: 0;
+  }
+div{
+    width: 100%;
+}
+.Iphone-Layout {
+    width: 80%;
+    margin: auto;
+    background: linear-gradient(to bottom, #67d3fe, #9897eb);
+    height: 60%;
+    display: flex;
+}
+.Iphone-title {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.marginIphone-Btn{
+    padding: 15px;
+    width: 200px;
+    margin-bottom: 20px;
+    max-width: 200px;
+    background: rgb(92, 86, 86);
+}
+.marginIphone-Btn:active{
+    background-color: chocolate;
+}
+.marginIphone{
+    max-width: 700px;
+    box-sizing: border-box;
+    margin-left: 5%;
+    font-size: 20px;
+    margin-top: 10px;
+    color: white;
+}
+.marginIphone-title{
+    margin-top: 7%;
+    font-size: 40px;
+}
+.Iphone-image {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: last baseline;
+}
+.Image-container{
+    width: 33%;
+}
+.Iphone-image img{
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+.show-Layout {
+    width: 80%;
+    height: 30%;
+    background-color: rgb(255, 255, 255);
+    margin: auto;
+    overflow: hidden;
+    padding-bottom: 15px;
+}
+.show-Layout > h4{
+    box-sizing: border-box;
+    font-size: 20px;
+    margin-top: 70px;
+}
+.show-Layout > button{
+    width: 180px;
+    font-size: 20px;
+    height: 50px;
+    font-weight: 600;
+    color: aliceblue;
+    background-color: black;
+    padding: 10px;
+}
+.show-Layout >button:active{
+    background-color: chocolate;
+}
+.show-Layout > p,
+.show-Layout >button,
+.show-Layout >h4{
+    box-sizing: border-box;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 15px;
+}
+.icon-Layout {
+    width: 80%;
+    height: 40%;
+    background-color: rgb(100, 100, 199);
+    margin: auto;
+}
+.icon-Head {
+    text-align: center;
+    padding: 15px;
+    height: 40%;
+}
+.iconBox-container{
+    height: 60%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.icon-Box {
+    width: 22%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 50px;
+}
+.icon-Box > i{
+    padding-top: 20px;
+    box-sizing: border-box;
+    font-size: 40px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    background-color: aliceblue;
+    color: rgb(100, 100, 199);
+    margin: auto;
+}
+.icon-Box-p {
+    color: aliceblue;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+.icon-Box-h4{
+    color: aliceblue;
+}
+
+
+
+
+.portfolio-Layout {
+    height: 700px;
+    width: 70%;
+    margin: auto;
+    min-height: 700px;
+}
+.portfolio-title{
+    position: relative;
+    padding: 2px;
+    height: 15%;
+    text-align: center;
+    background-color: white;
+}
+.portfolio-title > h4{
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.portfolio-photoBoxContainer{
+    height: 85%;
+    width: 100%;
+    background-color: aliceblue;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.portfolio-photoBox-0{
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+    height: 50%;
+}
+.portfolio-photoBox-1 {
+    background-image: url('../image/portfolio-1.jpg');
+}
+.portfolio-photoBox-2 {
+    background-image: url('../image/portfolio-2.jpg');
+}
+.portfolio-photoBox-3 {
+    background-image: url('../image/portfolio-3.jpg');
+}
+.portfolio-photoBox-4 {
+    background-image: url('../image/portfolio-4.jpg');
+}
+.portfolio-photoBox-title{
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 10%;
+    color: aliceblue;
+}
+
+
+
+.footer-Layout {
+    width: 100%;
+    height: 300px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+}
+.psIcon {
+    width: 100%;
+    height: 50%;
+    margin-left:auto;
+    text-align: center;
+}
+.psIcon > i{
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    padding-top: 25px;
+    font-size: 30px;
+    margin: 10px;
+    background-color: rgb(100, 100, 199);;
+    box-sizing: border-box;
+    color: white;
+}
+
+
+@media screen and (max-width:1200px) {
+    .Iphone-Layout{
+        height: 70%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .Iphone-title{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+}

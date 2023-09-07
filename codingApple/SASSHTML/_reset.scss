@@ -1,0 +1,24 @@
+body{
+    margin: 0px;
+}
+div{
+    width: 100%;
+}
+$main-color1 : white;
+
+
+@mixin button-styles {
+    padding: 10px 20px;
+    background-color: $primary-color;
+    color: white;
+}
+
+
+%alert-box {
+    padding: 10px;
+    border: 1px solid red;
+    background-color: pink;
+}
+
+
+$primary-color: #3498db;

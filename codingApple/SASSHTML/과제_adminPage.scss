@@ -1,0 +1,224 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+div{
+    box-sizing: border-box;
+}
+h4{
+    margin-bottom: 0px;
+}
+$purple : rgb(188, 97, 241);
+@mixin padding-tool($up, $down, $left, $right){
+    padding-top : $up;
+    padding-bottom: $down;
+    padding-left: $left;
+    padding-right : $right;
+}
+@mixin border-color(){
+    @include padding-tool(0px, 0px, 20px, 0px);
+    width: 90%;
+}
+@mixin border-dash($color){
+    border-radius: 20px;
+    border-left: 5px solid $color;
+}
+.main-background {
+    display: flex;
+    width: 100%;
+    background-color: rgb(241, 237, 237);
+    overflow: hidden;
+}
+.side-Bar {
+    padding-right: 20px;
+    transition: all 1s;
+    height: 10000px;
+    z-index: 5;
+    width: 90px;
+    background-color: rgb(188, 97, 241);
+    .side-BarBox{
+        text-align: right;
+        display: flex;
+        width: 100%;
+        @include padding-tool(50px, 0px, 0px, 0px);
+    }
+    p{
+
+        opacity: 0;
+        font-size: 25px;
+        font-weight: 800;
+    }
+    i{
+        font-size: 30px;
+    }
+}
+.side-Bar:hover{
+    transform: translate(0px);
+    width: 200px;
+    i.col-6{
+        float: left;
+    }
+    p.col-6{
+        float: left;
+    }
+}
+
+
+.main-container{
+    z-index: 4;
+    display: block;
+    width: 100%;
+}
+.head-container {
+    display: flex;
+    align-items: center;
+    background-color: azure;
+    width: 100%;
+    display: flex;
+    .head-profile{
+        display: flex;
+        justify-content: right;
+        width: 50%;
+    }
+    i{
+        padding: 20px;
+        margin-right: 20px;
+        font-size: 30px;
+    }
+    p{
+        padding-top: 10px;
+        margin-right: 40px;
+        display: flex;
+        align-items: center;
+        font-size: 30px;
+    }
+}
+.input-group{
+    width: 40%;
+    transition: all 1s;
+}
+.head-search{
+    display: flex;
+    width: 50%;
+    align-items: center;
+    input{
+        height: 40px;
+    }
+    
+    .input-group:hover{
+        width: 700px;
+    }
+    button{
+        height: 40px;
+    }
+    i{
+        font-size: 20px;
+    }
+}
+
+
+
+.dashboard-container {
+}
+.dash-score{
+    width: 100%;
+    display: flex;
+    @include padding-tool(50px, 50px, 0px, 30px);
+    align-items: center;
+    h4, p{
+        display: block;
+    }
+    .dash-score-container{
+        align-items: center;
+        margin-right: 30px;
+        display: flex;
+        height: 200px;
+        background-color: aliceblue;
+        width: 25%;
+        i{
+            font-size: 40px;
+            @include padding-tool(0px, 0px, 0px, 30px);
+        }
+        p{
+            font-size: 40px;
+        }
+    }
+}
+.score-title{
+    @include border-color();
+}
+.border-dash1{
+    @include border-dash(#7df6d0);
+}
+.border-dash2{
+    @include border-dash(#43e94e);
+}
+.border-dash3{
+    @include border-dash(#3d33f9);
+}
+.border-dash4{
+    @include border-dash(#f3ca42);
+}
+
+
+
+.footer-container {
+    width: 100%;
+    display: flex;
+}
+.Overview-container {
+    box-shadow: 1px 0px 5px 0px;
+    margin-left: 50px;
+    width: 60%;
+    h4{
+        @include padding-tool(20px, 20px, 20px, 0px);
+        font-weight: 800;
+        background-color: rgb(236, 211, 182);
+    }
+    canvas{
+        @include padding-tool(20px, 20px, 20px, 0px);
+        background-color: white;
+    }
+    margin-right: 50px;
+}
+.Tasks-container {
+    margin-left: 0px;
+    height: fit-content;
+    width: 30%;
+    @extend .Overview-container
+}
+.Tasks-item{
+    font-size: 25px;
+    font-weight: 800;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    @include padding-tool(20px, 20px, 20px, 10px);
+    display: flex;
+    justify-content: space-between;
+    span{
+        height: fit-content;
+        color: white;
+        background-color: rgb(56, 212, 255);
+        border-radius: 20px;
+    }
+}
+
+@media screen and (max-width : 1200px) {
+
+    .dash-score{
+        display: block;
+        .dash-score-container{
+            width: 90%;
+            margin-bottom: 40px;
+        }
+    }
+    .footer-container{
+        display: block;
+    }
+    .Overview-container,
+    .Tasks-container{
+        width: 82%;
+        margin-left: 50px;
+        margin-bottom: 30px;
+    }
+}

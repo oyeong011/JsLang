@@ -1,0 +1,54 @@
+.main-table{
+    list-style-type: none;
+    width: 30%;
+    margin: auto;
+    li{
+        width: 100%;
+        padding: 10px;
+        border: 1px solid black;
+        &:hover{
+            cursor: pointer;
+        }
+        &:active{
+            background-color: rgb(107, 194, 249);
+        }
+    }
+}
+@mixin alertBox($color){
+    width: 50%;
+    margin: auto;
+    display: flex;
+    >h4,
+    >p{
+        padding: 25px;
+        padding-right: 10px;
+        margin-bottom: 0%;
+    }
+    background-color: $color;
+}
+.alertBox_green{
+    @include alertBox(rgb(158, 252, 158));
+}
+.alertBox_red{
+    @include alertBox(rgb(244, 158, 158));
+}
+.alertBox_yellow{
+    @include alertBox(rgb(237, 237, 179));
+}
+
+.row{
+    width: 70%;
+}
+@mixin colunm($width){
+    width: $width;
+    border: 1px solid black;
+}
+.col-half{
+    @include colunm(50%);
+}
+.col-third{
+    @include colunm(33.33%);
+}
+.col-four{
+    @include colunm(25%);
+}

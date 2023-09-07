@@ -1,0 +1,126 @@
+
+.main-background{
+    text-align: center;
+    width: 100%;
+    height: 500px;
+    image-rendering: -webkit-optimize-contrast !important;
+    background-image: url(../image/shoes.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 1px;
+    position: relative;
+}
+.main-title{
+    color: white;
+    font-size: 40px;
+    margin-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.writing-post{
+    color: white;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.main-background>li{
+    color: aliceblue;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+/*.main-background>button{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background-color: bisque;
+    margin-top: 10px;
+    width: 200px;
+    height: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;    
+}*/
+/* .pseudo::first-letter{
+    color: red;
+    font-size: 30px;
+} */
+/* .pseudo::first-line{
+    color: red;
+    font-size: 30px;
+} */
+.pseudo::after{
+    content: '안녕';
+}
+.pseudo::before{
+    content: '안녕';
+}
+button:active{
+    background-color: aqua;
+}
+.main-btn{
+    padding: 15px;
+    font-size: 20px;
+    background: white;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 200px;
+    z-index: 5;
+}
+.contain-Box{
+    position: relative;
+    width: 80%;
+    padding: 20px;
+    margin: auto;
+    max-width: 600px;
+    height: 300px;
+    background-color: aliceblue;
+    top: -40px;
+    z-index: 1;
+    box-sizing: border-box;
+}
+input[type=text]{
+    padding: 10px;
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+td,th{
+    border: 1px solid black;
+}
+table{
+    border-collapse: collapse;
+}
+.test{
+    /* width: 50rem;html태그에 비례 기본:16px의 n배 */
+    /* width: 100vw;브라우저에따라 비율바꾸기 */
+    height: 10vh;
+    background-color: grey;
+}
+
+@media screen and (max-width:1200px) {
+    /* 1200이하일 경우 30으로 적용 
+    width 뭐 이런거 다가능!*/
+    .main-title{
+        font-size: 30px;
+    }
+    .nav-item{
+        font-size: 12px;
+    }
+}
+@media screen and (max-width:768px) {
+    /* 1200이하일 경우 30으로 적용 
+    width 뭐 이런거 다가능!*/
+    .main-title{
+        font-size: 15px;
+    }
+    .nav-item{
+        font-size: 12px;
+    }
+}
+/* 보통 breakpoint는 1200px 992px 768px 576px */
+
+.custom{
+    color: green;
+}

@@ -1,0 +1,42 @@
+
+.list-group{
+    visibility: hidden;
+    height: 0px;
+}
+.show{
+    transition: all 1s;
+    visibility: visible;
+    overflow: hidden;
+    transition: all 1s;
+    height: 200px;
+}
+
+.black-bg{
+    transition: all 1s;
+    background-color: bisque;
+    visibility: hidden;
+    opacity: 0;
+    width: 50%;
+    height: fit-content;
+    z-index: 5;
+    margin: auto;
+    position: fixed;
+    left: 25%;
+    padding: 40px;
+}
+.show-madal{
+    visibility: visible;
+    opacity: 1;
+}
+.white-bg{
+    background-color: white;
+    padding: 30px;
+}
+.hide{
+    display: block;
+}
+.main-bg{
+    padding-left: 20px;
+    padding: 60px;
+    background-color: lightgray;
+}

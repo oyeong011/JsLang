@@ -1,0 +1,46 @@
+.background-form{
+    background-color: aliceblue;
+    width: 80%;
+    padding: 30px;
+    margin: auto;
+    max-width: 600px;
+}
+.background{
+    width: 100%;
+    padding: 30px;
+    background-color:bisque;
+}
+.input-form {
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    font-size: 20px;
+}
+.namebox{
+    padding: 10px;
+    float: left;
+    width: 50%;
+}
+.w-100{
+    padding: 10px;
+    width: 100%;
+}
+textarea{
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
+    font-size: 20px;
+}
+.wbox{
+    float: left;
+}
+.wbox2{
+    float: right;
+}
+.SENDBtn{
+    background-color: orange;
+    color: white;
+    width: 90px;
+}

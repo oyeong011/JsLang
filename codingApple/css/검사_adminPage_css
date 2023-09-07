@@ -1,0 +1,27 @@
+.nav-link {
+  position: relative;
+}
+.badge {
+  position : absolute;
+  top: 0px;
+  left: 15px;
+}
+.sidebar {
+    width: 150px;
+    height: 1000px;
+    background: #484bb3;
+    position: fixed;
+    z-index: 5;
+    color : white;
+    transition : all 0.5s;
+    transform: translateX(-100px);
+    /* 나중에 줄 최종스타일
+    transform : translateX(-100px);
+     */
+}
+.sidebar div {
+    margin : 12px 0px 0px 15px;
+}
+.content {
+    margin-left : 50px;
+}

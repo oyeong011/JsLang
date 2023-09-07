@@ -1,0 +1,26 @@
+.product-container{
+    width: 80%;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+.product-container div{
+    float: left;
+    width: 25%;
+
+}
+
+@media screen and (max-width:1200px) {
+    .product-container div{
+        width: 50%;
+        text-align: center;
+    }
+}
+@media screen and (max-width:768px) {
+    .product-container div{
+        width: 100%;
+        text-align: center;
+    }
+}

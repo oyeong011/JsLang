@@ -1,0 +1,113 @@
+// 다른 파일 가져오기!
+@use '_reset';
+
+
+// 1. 어려운 단어 기억해야할 땐 변수 문법사용
+$main-color : #2a4cb2;
+$기본사이즈 : 16px;
+
+.background{ 
+    background-color: $main-color;
+    font-size: $기본사이즈 - 2px;
+} 
+.box{ 
+    color: #2a4cb2;
+}
+// scss만의 nesting문법 
+.main-bg h4{
+    font-size: 16px;
+}
+.main-bg button{
+    color: red;
+    background-color: reset.$main-color1;
+}
+//같다
+.main-bg{
+    width: 100px;
+    h4{
+        font-size: red;
+    }
+    button{
+        color : red($color: #000000)
+    }
+}
+
+// @extend 문법 class 복사 할때 쓴다.
+%btn{
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+}
+// .btn-green{
+//     width: 100px;
+//     height: 100px;
+//     padding: 20px;
+//     color: green;
+// }
+.btn-green{
+    @extend %btn;
+    color: green;
+}
+.btn-red{
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+    color: red;
+} 
+.btn-blue{
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+    color: blue;
+}
+
+%background{
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+}
+.background-red{
+    @extend %background;
+    background-color: red;
+}
+.background-green{
+    @extend %background;
+    background-color: green;
+}
+.background-blue{
+    @extend %background;
+    background-color: blue;
+}
+
+// @mixin 문법 아 축약마렵다
+
+@mixin 줄임말($구멍, $구멍2, $구멍3){
+    font-size: $구멍;
+    letter-spacing: $구멍2;
+    #{ $구멍3 } : -1px;
+}
+h2{
+    @include 줄임말(40px, 1px, margin);
+}
+h3{
+    font-size: 30px;
+    letter-spacing: -1px;
+}
+h4{
+    font-size: 30px; 
+    letter-spacing: -1px;
+}
+
+
+.button {
+    @include reset.button-styles; // 믹스인 사용
+  }
+  
+.alert { 
+    @extend %alert-box; // %extend 사용
+    font-weight: bold;
+}
+  
+  .alert-message {
+    color: reset.$primary-color; // 변수 사용
+  }

@@ -1,0 +1,242 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+h4 {
+  margin-bottom: 0px;
+}
+
+.main-background {
+  display: flex;
+  width: 100%;
+  background-color: rgb(241, 237, 237);
+  overflow: hidden;
+}
+
+.side-Bar {
+  padding-right: 20px;
+  transition: all 1s;
+  height: 10000px;
+  z-index: 5;
+  width: 90px;
+  background-color: rgb(188, 97, 241);
+}
+.side-Bar .side-BarBox {
+  text-align: right;
+  display: flex;
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.side-Bar p {
+  opacity: 0;
+  font-size: 25px;
+  font-weight: 800;
+}
+.side-Bar i {
+  font-size: 30px;
+}
+
+.side-Bar:hover {
+  transform: translate(0px);
+  width: 200px;
+}
+.side-Bar:hover i.col-6 {
+  float: left;
+}
+.side-Bar:hover p.col-6 {
+  float: left;
+}
+
+.main-container {
+  z-index: 4;
+  display: block;
+  width: 100%;
+}
+
+.head-container {
+  display: flex;
+  align-items: center;
+  background-color: azure;
+  width: 100%;
+  display: flex;
+}
+.head-container .head-profile {
+  display: flex;
+  justify-content: right;
+  width: 50%;
+}
+.head-container i {
+  padding: 20px;
+  margin-right: 20px;
+  font-size: 30px;
+}
+.head-container p {
+  padding-top: 10px;
+  margin-right: 40px;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+}
+
+.input-group {
+  width: 40%;
+  transition: all 1s;
+}
+
+.head-search {
+  display: flex;
+  width: 50%;
+  align-items: center;
+}
+.head-search input {
+  height: 40px;
+}
+.head-search .input-group:hover {
+  width: 700px;
+}
+.head-search button {
+  height: 40px;
+}
+.head-search i {
+  font-size: 20px;
+}
+
+.dash-score {
+  width: 100%;
+  display: flex;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 0px;
+  padding-right: 30px;
+  align-items: center;
+}
+.dash-score h4, .dash-score p {
+  display: block;
+}
+.dash-score .dash-score-container {
+  align-items: center;
+  margin-right: 30px;
+  display: flex;
+  height: 200px;
+  background-color: aliceblue;
+  width: 25%;
+}
+.dash-score .dash-score-container i {
+  font-size: 40px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 30px;
+}
+.dash-score .dash-score-container p {
+  font-size: 40px;
+}
+
+.score-title {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 20px;
+  padding-right: 0px;
+  width: 90%;
+}
+
+.border-dash1 {
+  border-radius: 20px;
+  border-left: 5px solid #7df6d0;
+}
+
+.border-dash2 {
+  border-radius: 20px;
+  border-left: 5px solid #43e94e;
+}
+
+.border-dash3 {
+  border-radius: 20px;
+  border-left: 5px solid #3d33f9;
+}
+
+.border-dash4 {
+  border-radius: 20px;
+  border-left: 5px solid #f3ca42;
+}
+
+.footer-container {
+  width: 100%;
+  display: flex;
+}
+
+.Overview-container, .Tasks-container {
+  box-shadow: 1px 0px 5px 0px;
+  margin-left: 50px;
+  width: 60%;
+  margin-right: 50px;
+}
+.Overview-container h4, .Tasks-container h4 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 0px;
+  font-weight: 800;
+  background-color: rgb(236, 211, 182);
+}
+.Overview-container canvas, .Tasks-container canvas {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 0px;
+  background-color: white;
+}
+
+.Tasks-container {
+  margin-left: 0px;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 30%;
+}
+
+.Tasks-item {
+  font-size: 25px;
+  font-weight: 800;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.Tasks-item span {
+  height: -moz-fit-content;
+  height: fit-content;
+  color: white;
+  background-color: rgb(56, 212, 255);
+  border-radius: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+  .dash-score {
+    display: block;
+  }
+  .dash-score .dash-score-container {
+    width: 90%;
+    margin-bottom: 40px;
+  }
+  .footer-container {
+    display: block;
+  }
+  .Overview-container,
+  .Tasks-container {
+    width: 82%;
+    margin-left: 50px;
+    margin-bottom: 30px;
+  }
+}/*# sourceMappingURL=과제_adminPage.css.map */

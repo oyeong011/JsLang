@@ -1,0 +1,113 @@
+body {
+  margin: 0px;
+}
+
+div {
+  width: 100%;
+}
+
+.alert {
+  padding: 10px;
+  border: 1px solid red;
+  background-color: pink;
+}
+
+.background {
+  background-color: #2a4cb2;
+  font-size: 14px;
+}
+
+.box {
+  color: #2a4cb2;
+}
+
+.main-bg h4 {
+  font-size: 16px;
+}
+
+.main-bg button {
+  color: red;
+  background-color: white;
+}
+
+.main-bg {
+  width: 100px;
+}
+.main-bg h4 {
+  font-size: red;
+}
+.main-bg button {
+  color: 0;
+}
+
+.btn-green {
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+}
+
+.btn-green {
+  color: green;
+}
+
+.btn-red {
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+  color: red;
+}
+
+.btn-blue {
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+  color: blue;
+}
+
+.background-blue, .background-green, .background-red {
+  width: 200px;
+  height: 200px;
+  padding: 20px;
+}
+
+.background-red {
+  background-color: red;
+}
+
+.background-green {
+  background-color: green;
+}
+
+.background-blue {
+  background-color: blue;
+}
+
+h2 {
+  font-size: 40px;
+  letter-spacing: 1px;
+  margin: -1px;
+}
+
+h3 {
+  font-size: 30px;
+  letter-spacing: -1px;
+}
+
+h4 {
+  font-size: 30px;
+  letter-spacing: -1px;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+}
+
+.alert {
+  font-weight: bold;
+}
+
+.alert-message {
+  color: #3498db;
+}/*# sourceMappingURL=test.css.map */

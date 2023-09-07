@@ -1,0 +1,27 @@
+@font-face{
+    font-family:'이쁜폰트';
+    src: url(../font/NanumSquareAcB.eot);
+}
+.mainbtn{
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+.btn-blue{
+    background: blue;
+}
+.btn-red{
+    background: red;
+}
+div{
+    box-sizing: border-box;
+}
+body{
+    margin:0px;
+    font-family: 'gulim', '이쁜폰트', 'arial';
+
+}
+p{
+    transform: rotate(0.03deg);
+}

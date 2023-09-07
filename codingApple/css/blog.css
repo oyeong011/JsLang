@@ -1,0 +1,55 @@
+.Box{
+    width: 70%;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+}
+.Left-Writing{
+    width: 70%;
+    height: 100%;
+    display: inline-block;
+}
+.Right-image{
+    width: 30%;
+    height: 100%;
+    background-color: brown;
+    display: inline-block;
+}
+.headline{
+    width: 100%;
+    height: 30%;
+    display: inline-block;
+    vertical-align: top;
+}
+.main-writing{
+    width: 100%;
+    height: 70%;
+    vertical-align: top;
+    text-align: center;
+}
+.profile_img{
+    border-radius: 50%; 
+    overflow: hidden; 
+    width: 40px; 
+    height: 40px;
+    margin-left: 0px;
+    margin-top: 7px;
+    display: inline-block;
+}
+.profile_Font{
+    display: inline-block;
+    margin-left: 3px;
+    margin-top: 3px;
+    vertical-align: top;
+    height: 70%;
+}
+.upload_Time{
+    vertical-align: top;
+    font-size: smaller;
+    margin-left: 2px;
+    height: 20%;
+}
+.profile_name{
+    display: inline-block;
+}

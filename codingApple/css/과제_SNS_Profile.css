@@ -1,0 +1,149 @@
+body{
+    background-color: #f7f9fc;
+}
+button{
+    transition: background-color 0.2s;
+}
+
+
+.container-setting{
+    background-color: white;
+    padding-left: 0px;
+    padding-right: 0px;
+    box-sizing: content-box;
+}
+.border-starter{
+    border-left: 1px dashed;
+}
+.container-navbar{
+    background-color: #f7f9fc;
+}
+
+.navbar-border{
+    border-bottom: 3px solid #bababa;
+    box-sizing: content-box;
+    justify-content: space-between;
+    padding: 0%;
+}
+.navbar-border > div{
+    width: fit-content;
+    border-bottom: 3px solid #6fbaf8;
+    margin-right: 100%;
+}
+
+.footer{
+    height: 600px;
+}
+
+.footer-Works h2{
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+.footer-Works{
+    width: 20%;
+    flex-wrap: wrap;
+}
+.footer-work-in{
+    flex-wrap: wrap;
+    width: 60%;
+    height: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+}
+.footer-about{
+    width: 50%;
+    background-color: white;
+}
+.footer-about-in{
+    height: 40%;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    border-bottom: 3px solid #bababa;
+}
+.skill-rouding{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    box-sizing: border-box;
+    width: 15%;
+    padding: 10px;
+    border-radius: 30px;
+    border: 1px solid #bababa;
+}
+.card-body i,
+.card-body h5,
+.card-body button,
+.card-body a{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 15px;
+}
+.card-body a{
+    margin-top: 0px;
+
+}
+
+.card-body button{
+    background-color: #6fbaf8;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.card-body i,
+.card-body a{
+    color: #6fbaf8;
+}
+.card-body i,
+.card-body h5{
+    margin-bottom: 20px;
+}
+.card-body i{
+    font-size: 100px;
+}
+.footer-rightdown{
+    width: 100%;
+    text-align: center;
+}
+.footer-rightdown-font h4{
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 1px;
+}
+.footer-rightdown-font p{
+    margin-bottom: 1px;
+}
+.footer-rightdown-font i{
+    font-size: 14px;
+}
+
+@media screen and (max-width: 1000px){
+    .mobile-header{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .mobile-header-title{
+        text-align: center;
+    }
+    .border-starter{
+        border-left: 0px;
+    }
+    .footer-about,
+    .footer-Works,
+    .footer-rightdown{
+        width: 100%;
+        padding-top: 20px;
+    }
+    .footer-about-in{
+        padding-bottom: 150px;
+    }
+    .footer-work-in{
+        margin-left: 2%;
+        width: 50%;
+        margin-bottom: 100px;
+    }
+}

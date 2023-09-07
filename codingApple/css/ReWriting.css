@@ -1,0 +1,13 @@
+.custom{
+    color: azure;
+}
+.main-background .custom{
+    color: azure;
+}
+div.main-background .custom{
+    color: azure;
+}
+
+div.main-background p.custom{
+    color: azure;
+}

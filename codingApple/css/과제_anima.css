@@ -1,0 +1,113 @@
+.btn{
+    background-color: rgb(172, 216, 216);
+    color: white;
+}
+.btn:hover{
+    animation-name: shack;
+    animation-duration: 0.2s;
+}
+@keyframes shack{
+    0%{
+        transform: rotate(-40deg);
+    }
+    50%{
+        transform: rotate(40deg);
+    }
+    75%{
+        transform: rotate(-40deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+.plus{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+}
+.plus:hover{
+    animation-name: plus-p;
+    animation-duration: 2s;
+}
+@keyframes plus-p{
+    
+    20%{
+        transform: rotate(-45deg);
+        transform-origin: center;
+    }
+    75%{
+        transform: rotate(45deg) scale(2);
+        transform-origin: center;
+    }
+}
+
+.blackBox{
+    background-color: black;
+    color: white;
+    width: 200px;
+    padding: 20px;
+    text-align: right;
+    transform: translateX(-100px);
+    z-index: 5;
+}
+.blackBox:hover{
+    transform: translateX(0px);
+    text-align: center;
+}
+.blackBox:hover > p{
+    animation-name: p-item;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+.pAnima{
+    text-align: left;
+}
+@keyframes blackBoxAni{
+    0%{
+        transform: translateX(-50px);
+        text-align: center;
+    }
+}
+@keyframes p-item{
+    0%{
+        transform: translateX(-20px);
+    }
+    30%{
+        transform: translateX(80px) skewX(-30deg);
+    }
+    100%{
+        transform: translateX(60px);
+    }
+    
+}
+
+.ani-button {
+    padding: 15px 20px;
+    font-size: 20px;
+    background: skyblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    margin: 30px auto;
+  }
+
+.ani-x {
+    margin: 150px auto;
+    text-align: center;
+    font-size: 70px;
+    width: 84px;
+    cursor: pointer;
+}
+.ani-x:hover {
+    animation-name: turn;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes turn {
+    0% { transform: rotate(0deg) }
+    25% { transform: rotate(-15deg) }
+    100% { transform: rotate(45deg) scale(1.5)}
+  } 
