@@ -1,0 +1,22 @@
+.modal-bg {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  background-color: aliceblue;
+  margin: auto;
+  padding: 20px;
+}
+.modal-bg h4,
+.modal-bg input,
+.modal-bg button {
+  margin-top: 30px;
+}
+.modal-bg .btn-container {
+  display: flex;
+}
+.modal-bg .btn-container button {
+  width: 60px;
+  height: 30px;
+  margin-right: 10px;
+  padding-bottom: 30px;
+}/*# sourceMappingURL=2-4.css.map */

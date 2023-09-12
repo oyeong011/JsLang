@@ -39,7 +39,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
         </div>
-      </nav> 
+    </nav> 
       <ul class="list-group">
         <li class="list-group-item">An item</li>
         <li class="list-group-item">A second item</li>
@@ -52,25 +52,111 @@
         <h4>Shirts on Sale</h4>
         <button id="login" class="btn btn-danger">로그인</button>
       </div>
+      
+      <div style="overflow: hidden;">
+        <div class="slide-container">
+          <div class="slide-box">
+            <img src="../img/car1.png" alt="">
+          </div>
+          <div class="slide-box">
+            <img src="../img/car2.png" alt=""></div>
+          <div class="slide-box">
+            <img src="../img/car3.png" alt="">
+          </div>
+        </div>
+      </div>
+      <button class="slide-1">1</button>
+      <button class="slide-2">2</button>
+      <button class="slide-3">3</button>
+      <button class="next-btn">다음</button>
+
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="crossorigin=
+      "anonymous"></script>
+
+
+
+      <script>
+
+
+        $('.black-bg').on('click', function(e){
+          e.target; //유저가 실제로 누른것
+          console.log('e.target;: ', e.target);
+          // e.currentTarget; //이벤트 리스너가 달린곳
+          // this;
+          // e.preventDefault();
+          // e.stopPropagation();//내상위요소로 이벤트가 퍼치는것을 막아줌
+          // console.log('e.currentTarget: ', e.currentTarget);
+          if(e.target == document.querySelector('.black-bg')){
+            $('.black-bg').toggleClass('show-madal');
+          }
+        })
+
+
+
 
       
-      <script>
+        function discount(price, firstBuy){
+          price *=0.9;
+          if(firstBuy){
+            return (price - 1.5).toFixed(2)
+          }
+          else{
+            return price
+          }
+        }
+        console.log("허허");
+        console.log(discount(70, false))
+        console.log(discount(10, true))
+
+        function vat(a){
+          var num = (a * 1.1).toFixed(1);
+          return num
+        }
+
+        let slidenumber = -1;
+
+
 
         $('form').on('submit', function(e){
             var username = $('#login').val();
             var password = $('#password').val();
             console.log(username);
             console.log(password);
+            console.log(/\S+@\S+.\S+/.test(username)==false);
             if(username === "" || password === ""){
                 e.preventDefault();
                 alert("이메일또는비번이잘못됨")
             }
+            if(/\S+@\S+\.\S+/.test(username) == false){
+              e.preventDefault();
+              alert('이메일형식으로 절대 지켜');
+            }
             else if(password.length<6){
                 e.preventDefault();
-                alert("비버 너무짧아요옹")
+                alert("비번 너무짧아요옹")
+            }
+            else if(/A-Z/.test(password)==false){
+              alert('소문자밖에없네요용')
             }
         })
+        let number = 0;
+  
 
+        $('.slide-1').on('click', function(){
+          $('.slide-container').css('transform', 'translateX(0vw)')
+        })
+        $('.slide-2').on('click', function(){
+          $('.slide-container').css('transform', 'translateX(-100vw)')
+        })
+        $('.slide-3').on('click', function(){
+          $('.slide-container').css('transform', 'translateX(-200vw)')
+        })
+        $('.next-btn').on('click', function(){
+          number += 1;
+          number%=3;
+          $('.slide-container').css('transform', `translateX(-${number * 100}vw)`)
+        })
 
         $('#bts').on('click', function(){
             $('.black-bg').toggleClass('show-madal');
