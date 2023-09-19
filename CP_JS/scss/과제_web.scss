@@ -1,0 +1,42 @@
+.navbar{
+    a{
+        color: white
+    }
+    button{
+        background-color: white;
+        span{
+            color: white;
+        }
+    }
+}
+.footer{
+    background-color: rgb(200, 192, 192);
+}
+.drag-container{
+    display: flex;
+    height: 400px;
+    text-align: center;
+    align-items: center;
+}
+.canvasContainer{
+    z-index: 1999;
+    position: fixed;
+    left: auto;
+    right: auto;
+    top: 100px;
+    left: 800px;
+}
+canvas{
+    background-color: white;
+    position: fixed;
+    
+    z-index: 2000;
+}
+.canvasDisplay{
+    display: none;
+}
+.closeReceipt{
+    position: absolute;
+    background-color: black;
+    z-index: 2001;
+}
