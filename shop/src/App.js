@@ -6,12 +6,18 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import bg from './img/bg.png';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import { useState } from 'react';
+import data from './data';
 
 
 function App() {
+  let [shoes] = useState(data)
+  console.log(shoes);
   return (
     <div className="App">
-      <Button variant="primary">Primary</Button>{' '}
       <Navbar expand="bg" className="bg-body-tertiary">
       <Container>
         <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
@@ -35,8 +41,26 @@ function App() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    <div className="main-bg" style={{backgroundImage : 'url( + bg + )'}}></div>
+    <Container>
+      <Row>
+        <Goods shoesObj = {shoes}></Goods>
+      </Row>
+    </Container>
     </div>
   );
+}
+function Goods(props){
+  return(
+    props.shoesObj.map(function(a, i){
+    <Col key={i}>
+          <img src={process.env.PUBLIC_URL + ''} alt="" />
+          <img src="https://codingapple1.github.io/shop/shoes1.jpg"  width = "80%"/>
+          <h4>{a.title}</h4>
+          <p>{a.content}</p>
+    </Col>
+    }
+  ));
 }
 
 export default App;
