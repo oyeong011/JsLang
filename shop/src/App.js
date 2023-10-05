@@ -12,6 +12,7 @@ import data from './data';
 import {Routes, Route, Link, useNavigate, Outlet, useParams} from 'react-router-dom'
 import styled from 'styled-components'
 import { useEffect } from 'react';
+import axios from 'axios'
 
 
 let YellowBtn = styled.button`
@@ -21,19 +22,22 @@ let YellowBtn = styled.button`
 `
 
 function App() {
-
+  let [real, realize] = useState(true)
   useEffect(()=>{
-    console.log("안녕");
-  })
-
+    setTimeout(()=>{realize(false)}, 2000);
+    return ()=>{
+      // useEffect전에 실행되는 return()=>{}
+    }
+  }, [])//count라는 변수가 변할때만 실행된다 물론 mount시에도 한번 실행된다
+  
+  let [탭, 탭변경] = useState(0)
   let [count, setCount] = useState(0);
-
-  let [shoes] = useState(data)
+  let [btnCount, setBtnCount] = useState(0);
+  let [shoes, setShoes] = useState(data)
   let navigate = useNavigate();
+  let [okay, setOkay] = useState(false)
   return (
     <div className="App">
-      <YellowBtn bg = "blue"></YellowBtn>
-      <YellowBtn bg = "orange"></YellowBtn>
       <Navbar expand="bg" className="bg-body-tertiary">
       <Container>
         <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
@@ -63,11 +67,34 @@ function App() {
     <Routes>
         <Route path='/' element={
           <Container>
-            <Row>
-              <Goods shoesObj = {shoes}></Goods>
-            </Row>
+            <Goods shoesObj = {shoes} Okay = {okay}></Goods>
+            {
+              btnCount < 2 ? (
+                <button
+                  onClick={() => {
+                    setBtnCount(btnCount+1);
+                    setOkay(true)
+                    axios.get(`https://codingapple1.github.io/shop/data${btnCount+2}.json`)
+                    .then((결과)=>{
+                      let newShoes = [...shoes];
+                      newShoes.push(...결과.data);
+                      setShoes(newShoes);
+                      setOkay(false)
+                    })
+                    .catch(()=>{
+                      console.log("실패함요");
+                    });
+                  }}
+                >
+                  버튼
+                </button>
+              ) : null
+            }
+            {
+               okay === true ? <Loading/> : null
+            }
           </Container>
-        } />
+      }/>
         <Route path='/detail' element={<DetailPage shoes = {shoes}/>}>
           <Route path='member' element={<div>멤버임</div>} />
         </Route>
@@ -82,22 +109,113 @@ function App() {
         <Route path="*" element={ <div>없는페이지임</div> } />
     </Routes>
 
+    <Nav variant="tabs" defaultActiveKey="link-1">
+      <Nav.Item>
+        <Nav.Link href="/home">Active</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link onClick={()=>{탭변경(0)}} eventKey="link-1">HTML</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link onClick={()=>{탭변경(1)}} eventKey="link-2">CSS</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link onClick={()=>{탭변경(2)}} eventKey="link-3">JS</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="disabled" disabled>
+          Disabled
+        </Nav.Link>
+      </Nav.Item>
+    </Nav>
+    <TabContent 탭 = {탭}/>
     <div className="main-bg" style={{backgroundImage : 'url( + bg + )'}}></div>
+    {
+      real == true ? <div className='alert alert-warning'>
+                        2초이내 구매시 할인
+                    </div> : null 
+    }
+    <input onInput={(e)=>{
+      if((isNaN(e.target.value))){
+        alert("숫자만치셈");
+      }
+    }} />
     </div>
+
   );
 }
-function Goods(props){
-  return(
-    props.shoesObj.map(function(a, i){
-      return(  
-        <Col key={i}>
-              <img src={`https://codingapple1.github.io/shop/shoes${i+1}.jpg`}  width = "80%"/>
-              <h4>{a.title}</h4>
-              <p>{a.content}</p>
-        </Col>
-      );
+// function TabUI(){
+//   return(
+    
+//   )
+// }
+function TabContent({탭}){
+  
+  let [fade, setFade] = useState('')
+  useEffect(()=>{
+    setTimeout(()=>{setFade('end')}, 100)
+    return ()=>{
+      setFade('')
     }
-  ));
+  }, [탭])
+  return (<div className={'start ' + fade}>
+            {[<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][탭]}
+         </div>)
+}
+function Loading(){
+  return(
+    <p>로딩중입니다...</p>
+  )
+}
+function Timeout(){
+  return(
+    <div className='alert alert-warning'>
+        2초이내 구매시 할인
+    </div>
+  )
+}
+// function Goods(props){
+//   const { shoesObj } = props;
+//   function chunkArray(arr, size) {
+//     const chunkedArr = [];
+//     for (let i = 0; i < arr.length; i += size) {
+//       chunkedArr.push(arr.slice(i, i + size));
+//     }
+//     return chunkedArr;
+//   }
+
+//   const chunkedShoes = chunkArray(shoesObj, 3);
+//   return(
+//     <>
+//       {chunkedShoes.map((chunk, chunkIndex) => (
+//         <Row key={chunkIndex}>
+//           {chunk.map((a, i) => (
+//             <Col key={i}>
+//               <img src={`https://codingapple1.github.io/shop/shoes${a.id+1}.jpg`} width="80%" />
+//               <h4>{a.title}</h4>
+//               <p>{a.content}</p>
+//             </Col>
+//           ))}
+//         </Row>
+//       ))}
+//     </> 
+//   );
+// }
+function Goods(props) {
+  const { shoesObj } = props;
+  return (
+    <Row>
+      {shoesObj.map((a, i) => (
+        <Col key={i} xs={12} sm={6} md={4} lg={4}>
+          {/* 위의 코드에서 xs, sm, md, lg는 화면 크기에 따른 레이아웃을 조절하기 위한 옵션입니다. */}
+          <img src={`https://codingapple1.github.io/shop/shoes${a.id + 1}.jpg`} width="80%" alt={a.title} />
+          <h4>{a.title}</h4>
+          <p>{a.content}</p>
+        </Col>
+      ))}
+    </Row>
+    
+    );
 }
 function About(){
   return (
