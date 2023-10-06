@@ -1,5 +1,9 @@
 import Table from 'react-bootstrap/Table';
+import { useSelector } from 'react-redux';
 function Cart(){
+
+    let a = useSelector((state)=>{return state})
+    console.log('a.shppingList: ', a);
     return(
         <div>
     <Table striped="columns">
