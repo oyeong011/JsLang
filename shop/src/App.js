@@ -13,7 +13,7 @@ import {Routes, Route, Link, useNavigate, Outlet, useParams} from 'react-router-
 import styled from 'styled-components'
 import { useEffect } from 'react';
 import axios from 'axios'
-
+import Cart from './Cart'
 
 let YellowBtn = styled.button`
   background : ${ props => props.bg};
@@ -31,7 +31,6 @@ function App() {
   }, [])//count라는 변수가 변할때만 실행된다 물론 mount시에도 한번 실행된다
   
   let [탭, 탭변경] = useState(0)
-  let [count, setCount] = useState(0);
   let [btnCount, setBtnCount] = useState(0);
   let [shoes, setShoes] = useState(data)
   let navigate = useNavigate();
@@ -45,7 +44,7 @@ function App() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link onClick={()=>{navigate('/')}}>Home</Nav.Link>
-            <Nav.Link onClick = {()=>{navigate('/detail:id')}}>Detail</Nav.Link>
+            <Nav.Link onClick = {()=>{navigate('/detail/0')}}>Detail</Nav.Link>
             <Nav.Link onClick = {()=>{navigate('/about')}}>Event</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -98,6 +97,9 @@ function App() {
         <Route path='/detail' element={<DetailPage shoes = {shoes}/>}>
           <Route path='member' element={<div>멤버임</div>} />
         </Route>
+        <Route path='/cart' element={<Cart/>}></Route>
+
+
         <Route path='/about' element={<About/>}>
           <Route path='one' element={<div>첫 주문시 양배추즙 서비스</div>} />
           <Route path='two' element={<div>생일기념 쿠폰받기</div>} />
@@ -128,7 +130,7 @@ function App() {
         </Nav.Link>
       </Nav.Item>
     </Nav>
-    <TabContent 탭 = {탭}/>
+    <TabContent 탭 = {탭} shoes={shoes}/>
     <div className="main-bg" style={{backgroundImage : 'url( + bg + )'}}></div>
     {
       real == true ? <div className='alert alert-warning'>
@@ -149,7 +151,8 @@ function App() {
     
 //   )
 // }
-function TabContent({탭}){
+function TabContent({탭, shoes}){
+  
   
   let [fade, setFade] = useState('')
   useEffect(()=>{
@@ -228,15 +231,19 @@ function About(){
   )
 }
 function DetailPage(props){
-  
   let {id} = useParams();
+  let [opa, setOpa] = useState('')
+  useEffect(()=>{
+    setTimeout(setOpa('end'), 1000);
+    return(()=>{
+      clearTimeout()
+      setOpa('')
+    })
+  })
   id = parseInt(id)
   let newShoes = props.shoes.find(a => a.id === id)
-  console.log('id: ', id);
-  
-  console.log('newShoes.find(item => item.id === id): ');
   return(
-    <div className="container">
+    <div className={`container start ${opa}`}>
     <div className="row">
       <div className="col-md-6">
         <img src={`https://codingapple1.github.io/shop/shoes${parseInt(id)+1}.jpg`} width="100%" />
