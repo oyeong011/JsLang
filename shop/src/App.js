@@ -14,6 +14,9 @@ import styled from 'styled-components'
 import { useEffect } from 'react';
 import axios from 'axios'
 import Cart from './Cart'
+import { addCart } from './store';
+import { useDispatch, useSelector } from 'react-redux';
+import { useQuery } from 'react-query';
 
 let YellowBtn = styled.button`
   background : ${ props => props.bg};
@@ -30,6 +33,15 @@ function App() {
     }
   }, [])//count라는 변수가 변할때만 실행된다 물론 mount시에도 한번 실행된다
   
+
+
+  let result = useQuery('작명', ()=>
+  axios.get('https://codingapple1.github.io/userdata.json')
+  .then((a)=>{ return a.data })
+)
+
+
+
   let [탭, 탭변경] = useState(0)
   let [btnCount, setBtnCount] = useState(0);
   let [shoes, setShoes] = useState(data)
@@ -46,6 +58,10 @@ function App() {
             <Nav.Link onClick={()=>{navigate('/')}}>Home</Nav.Link>
             <Nav.Link onClick = {()=>{navigate('/detail/0')}}>Detail</Nav.Link>
             <Nav.Link onClick = {()=>{navigate('/about')}}>Event</Nav.Link>
+            <Nav.Link onClick = {()=>{navigate('/cart')}}>Cart</Nav.Link>
+            <Nav className='ms-auto'>
+              {result.isLoading ? '로딩중' : result.data.name}
+            </Nav>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
@@ -65,7 +81,8 @@ function App() {
 
     <Routes>
         <Route path='/' element={
-          <Container>
+          <Container className='scrollContainer'>
+            <RecentGoods/>
             <Goods shoesObj = {shoes} Okay = {okay}></Goods>
             {
               btnCount < 2 ? (
@@ -90,8 +107,20 @@ function App() {
               ) : null
             }
             {
-               okay === true ? <Loading/> : null
+               okay === true ? <Loading/> : null // 로딩창
             }
+            <TabContent 탭 = {탭} shoes={shoes}/>
+            <div className="main-bg" style={{backgroundImage : 'url( + bg + )'}}></div>
+            {
+              real == true ? <div className='alert alert-warning'>
+                                2초이내 구매시 할인
+                            </div> : null 
+            }
+            <input onInput={(e)=>{
+              if((isNaN(e.target.value))){
+                alert("숫자만치셈");
+              }
+            }} />
           </Container>
       }/>
         <Route path='/detail' element={<DetailPage shoes = {shoes}/>}>
@@ -130,30 +159,11 @@ function App() {
         </Nav.Link>
       </Nav.Item>
     </Nav>
-    <TabContent 탭 = {탭} shoes={shoes}/>
-    <div className="main-bg" style={{backgroundImage : 'url( + bg + )'}}></div>
-    {
-      real == true ? <div className='alert alert-warning'>
-                        2초이내 구매시 할인
-                    </div> : null 
-    }
-    <input onInput={(e)=>{
-      if((isNaN(e.target.value))){
-        alert("숫자만치셈");
-      }
-    }} />
     </div>
 
   );
 }
-// function TabUI(){
-//   return(
-    
-//   )
-// }
 function TabContent({탭, shoes}){
-  
-  
   let [fade, setFade] = useState('')
   useEffect(()=>{
     setTimeout(()=>{setFade('end')}, 100)
@@ -220,6 +230,20 @@ function Goods(props) {
     
     );
 }
+function RecentGoods(){
+  let recentItem = JSON.parse(localStorage.getItem('watched'));
+  console.log('recentItem: ', recentItem);
+  return(
+    <div className='recentLookItem'>
+      <p>최근 본 상품</p>
+      {
+        recentItem.map((a)=>(
+          <img src={`https://codingapple1.github.io/shop/shoes${a.id + 1}.jpg`} width="80%" />
+        ))
+      }
+    </div>
+  )
+}
 function About(){
   return (
     <div>
@@ -232,7 +256,10 @@ function About(){
 }
 function DetailPage(props){
   let {id} = useParams();
+  id = parseInt(id)
   let [opa, setOpa] = useState('')
+  let b = useSelector((state)=>{return state})
+  let dispatch = useDispatch()
   useEffect(()=>{
     setTimeout(setOpa('end'), 1000);
     return(()=>{
@@ -240,8 +267,15 @@ function DetailPage(props){
       setOpa('')
     })
   })
-  id = parseInt(id)
   let newShoes = props.shoes.find(a => a.id === id)
+  useEffect(()=>{// 로컬스토리지에 최근본상품 저장하기
+    let localItem = JSON.parse(localStorage.getItem('watched')) || []
+    if(!localItem.some(item => item.title === newShoes.title)){
+      localItem.push(newShoes)
+      localStorage.setItem('watched', JSON.stringify(localItem))
+    }
+    console.log('localStorage: ', localStorage);
+  },[])
   return(
     <div className={`container start ${opa}`}>
     <div className="row">
@@ -252,7 +286,10 @@ function DetailPage(props){
         <h4 className="pt-5">{newShoes.title}</h4>
         <p>{newShoes.content}</p>
         <p>{newShoes.price}</p>
-        <button className="btn btn-danger">주문하기</button> 
+        <button onClick={()=>{
+          dispatch(addCart(newShoes));
+        }} 
+        className="btn btn-danger">주문하기</button> 
       </div>
     </div>
   </div> 

@@ -6,23 +6,53 @@ let shoppingBasket = [
     {id : 2, name : 'Grey Yordan', count : 1}
 ] 
 
-let cartStorage = shoppingBasket.map((a, i)=>{
-    const slice = createSlice({
-            name: `shoppingTitle${i}`,
-            initialState: {...a}
+let cartStorage = createSlice({
+            name: `shoppingTitle`,
+            initialState : [
+                {id : 0, name : 'White and Black', count : 2},
+                {id : 2, name : 'Grey Yordan', count : 1}
+            ] ,
+            reducers : {
+                addCart(state, action){
+                    let OriObj = action.payload;
+                    let newObj = {id : OriObj.id, name : OriObj.title, count : 0}
+                    let pushTest = state.findIndex((a)=>{return a.id === newObj.id})
+                    console.log('pushTest: ', pushTest);
+                    if(pushTest < 0){
+                        state.push(newObj)
+                    }
+                    else{
+                        state[pushTest].count++;
+                    }
+                },
+                plus(state, action){
+                    let num = state.findIndex((a)=>{return a.name == action.payload})
+                    state[num].count++;
+                    
+                },
+                deleteRow(state, action){
+                    let num = state.findIndex((a)=>{return a.name === action.payload})
+                    state.splice(num,1);
+                }       
+            }
         }
-    )
-    return slice.reducer
-})
+)
 
-
+console.log('cartStorage: ', cartStorage);
 
 let user = createSlice({
     name : 'user',
-    initialState : 'kim'
+    initialState : 'kim',
+    reducers : {
+        changeName(state){
+            return 'john' + state
+        }
+    }
 })
-console.log('user: ', user);
 
+
+export let {changeName} = user.actions
+export let {plus, addCart, deleteRow} = cartStorage.actions
 
 let stock = createSlice({
     name : 'stock',
@@ -33,12 +63,5 @@ export default configureStore({
     reducer: {
         user : user.reducer,
         stock : stock.reducer,
-        shoppingList : (state = {}, action) => {
-            // 각 쇼핑 바스켓 reducer를 조합하려면 combineReducers 또는 직접 조합해야 합니다.
-            let nextState = state;
-            cartStorage.forEach((cartReducer, index) => {
-              nextState[`cart${index}`] = cartReducer(nextState[`cart${index}`], action);
-            });
-            return nextState;
-    }
+        shoppingList : cartStorage.reducer
 }})
