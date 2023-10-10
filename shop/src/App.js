@@ -187,51 +187,24 @@ function Timeout(){
     </div>
   )
 }
-// function Goods(props){
-//   const { shoesObj } = props;
-//   function chunkArray(arr, size) {
-//     const chunkedArr = [];
-//     for (let i = 0; i < arr.length; i += size) {
-//       chunkedArr.push(arr.slice(i, i + size));
-//     }
-//     return chunkedArr;
-//   }
-
-//   const chunkedShoes = chunkArray(shoesObj, 3);
-//   return(
-//     <>
-//       {chunkedShoes.map((chunk, chunkIndex) => (
-//         <Row key={chunkIndex}>
-//           {chunk.map((a, i) => (
-//             <Col key={i}>
-//               <img src={`https://codingapple1.github.io/shop/shoes${a.id+1}.jpg`} width="80%" />
-//               <h4>{a.title}</h4>
-//               <p>{a.content}</p>
-//             </Col>
-//           ))}
-//         </Row>
-//       ))}
-//     </> 
-//   );
-// }
 function Goods(props) {
   const { shoesObj } = props;
   return (
     <Row>
-      {shoesObj.map((a, i) => (
+      { shoesObj.map((a, i) => (
         <Col key={i} xs={12} sm={6} md={4} lg={4}>
           {/* 위의 코드에서 xs, sm, md, lg는 화면 크기에 따른 레이아웃을 조절하기 위한 옵션입니다. */}
           <img src={`https://codingapple1.github.io/shop/shoes${a.id + 1}.jpg`} width="80%" alt={a.title} />
           <h4>{a.title}</h4>
           <p>{a.content}</p>
         </Col>
-      ))}
+      )) }
     </Row>
     
     );
 }
 function RecentGoods(){
-  let recentItem = JSON.parse(localStorage.getItem('watched'));
+  let recentItem = JSON.parse(localStorage.getItem('watched')) || [];
   console.log('recentItem: ', recentItem);
   return(
     <div className='recentLookItem'>
