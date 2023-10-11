@@ -6,8 +6,8 @@ app.listen(8080, function(){
     console.log('listening on 8080')
 })
 
-app.use(express.static(path.join(__dirname, 'react-Project/build')))
+app.use(express.static(path.join(__dirname, 'reactproject/build')))
 
 app.get('/', function(요청, 응답){
-    응답.sendFile(path.join(__dirname, 'react-Project/build/index.html'))
+    응답.sendFile(path.join(__dirname, 'reactproject/build/index.html'))
 })
