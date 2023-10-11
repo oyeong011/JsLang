@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          리액트로 만든 html입니다만
         </a>
       </header>
     </div>
