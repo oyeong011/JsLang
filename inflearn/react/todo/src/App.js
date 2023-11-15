@@ -5,32 +5,14 @@ import List from './component/List';
 
 function App() {
   const initialItem = localStorage.getItem("payList")
-  ? localStorage.getItem("payList")
+  ? JSON.parse(localStorage.getItem("payList"))
   : [];
-  const [payList, setPayList] = useState([
-    {
-      id : 1,
-      titlePay : "식비",
-      payment : 1200,
-      completed : false
-    },
-    {
-      id : 2,
-      titlePay : "교통비",
-      payment : 12000,
-      completed : false
-    }
-  ]);
+  const [payList, setPayList] = useState(initialItem);
   
   const [titleValue, setTitleValue] = useState("")
   const [paymentValue, setPaymentValue] = useState(0)
 
-  
-  
-  
-  
-  
-  
+  //총합 계산
   const totalAmount = () => {
     let amount = 0
     payList.forEach((data) => {
@@ -39,16 +21,25 @@ function App() {
     return amount
   }
 
-
+  //휴지통 버튼
+  const handleEleRemove = (id) => {
+    let newPayList = payList.filter((data) => data.id !== id)
+  
+    setPayList(newPayList);
+    localStorage.setItem("patList", JSON.stringify(newPayList))
+  }
+  
+  //지출 항목에 입력
   const handleTitleChange = (e) => {
     setTitleValue(e.target.value);
     console.log('TitleValue: ', titleValue);
   }
+  //비용에 입력
   const handlePaymentChange = (e) => {
     setPaymentValue(e.target.value);
     console.log('paymentValue: ', paymentValue);
   }
-  
+  //입력 버튼
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -64,7 +55,9 @@ function App() {
     setTitleValue("");
     setPaymentValue("");
   }
+  
 
+  //체크 버튼
   const handleCheck = (id) => {
     let newPayList = payList.map((data) => {
       if(data.id === id){
@@ -75,11 +68,13 @@ function App() {
     setPayList(newPayList);
     localStorage.setItem("payList", JSON.stringify(newPayList));
   }
-
+  //전체 삭제 버튼
   const handleRemoveAll = () => {
     setPayList([]);
     localStorage.setItem("payList", JSON.stringify([]))
   }
+
+  
 
   return (
     <div className='bg-amber-600 w-screen h-screen flex items-center justify-center flex-col'>
@@ -93,18 +88,21 @@ function App() {
           paymentValue = {paymentValue}
         />
         {payList.map((data) => {
-          return(
-            <List
-              payList = {payList}
-              titleValue = {titleValue}
-              paymentValue = {paymentValue}
-              id = {data.id}
-              title = {data.titlePay}
-              payment = {data.payment}
-              completed = {data.completed}
-              handleCheck = {handleCheck}
-            />
-          )
+            return(
+              <List
+                key={data.id}
+                payList = {payList}
+                titleValue = {titleValue}
+                paymentValue = {paymentValue}
+                id = {data.id}
+                title = {data.titlePay}
+                payment = {data.payment}
+                completed = {data.completed}
+                handleCheck = {handleCheck}
+                handleEleRemove = {handleEleRemove}
+                setPayList = {setPayList}
+              />
+            )
         })}
 
 
