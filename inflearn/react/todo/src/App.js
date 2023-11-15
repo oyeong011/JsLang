@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import Form from './component/Form';
 import List from './component/List';
+import { FaRegTrashCan } from 'react-icons/fa6';
 
 function App() {
   const initialItem = localStorage.getItem("payList")
@@ -108,7 +109,7 @@ function App() {
 
 
         <div className='flex justify-between'>
-          <button onClick={handleRemoveAll}>목록 지우기</button>
+          <button className='bg-green-300 p-3 mt-5 rounded flex items-center' onClick={handleRemoveAll}>목록 지우기 <FaRegTrashCan/></button>
           <p>총지출: {totalAmount()}원</p>
 
         </div>

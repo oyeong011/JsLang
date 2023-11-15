@@ -1,4 +1,5 @@
 import React from "react";
+import { FaRegTrashCan } from "react-icons/fa6";
 
 export default function Form({
   handleTitleChange,
@@ -36,8 +37,9 @@ export default function Form({
         <input
           className="bg-green-300 p-1 mt-5 rounded w-16"
           type="submit"
-          value={"입력"}
+          value={`입력`}
           onClick={handleSubmit}
+          
         />
       </form>
     </div>
