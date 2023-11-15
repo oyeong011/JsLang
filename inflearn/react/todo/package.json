@@ -38,5 +38,6 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.3.5"
-  }
+  },
+  "homepage": "https://oyeong011.github.io/REACT_TODO/"
 }
