@@ -20,6 +20,7 @@ const Layout = () => {
     </div>
   )
 }
+
 function App() {
   return (
     <div className="App">
